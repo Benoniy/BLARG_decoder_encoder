@@ -36,7 +36,7 @@ public class Main extends Application {
         mainStage.show();
 
 
-        TXT_DECODER.decode("C:\\Users\\Ben\\Desktop\\TESTui.txt");
+
         loop();
     }
 
@@ -45,6 +45,7 @@ public class Main extends Application {
 
             @Override
             public void handle(long now) {
+                TXT_DECODER.decode("C:\\Users\\Ben\\Desktop\\TESTui.txt");
                 bk.render();
                 for (sprite s : sprites){
                     s.render();
