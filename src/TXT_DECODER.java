@@ -85,6 +85,9 @@ public class TXT_DECODER {
             if (s.contains("[")){
                 title = s;
             }
+            else if (s.contains("type=")){
+                type = s.replace("type=", "");
+            }
             else if (s.contains("size=")){
                 s = s.replace("size=", "").replace("w", "")
                         .replace("h", "").replace("%", "");
@@ -117,21 +120,24 @@ public class TXT_DECODER {
                 color = workColour(s.replace("color=", ""));
             }
         }
-        if (sprite.equals("square")){
-            square s = new square(Main.bkPane, title, ingameX, ingameY, ingameW, ingameH, color);
-            Main.sprites.add(s);
-        }
-        else if (sprite.equals("circle")){
-            circle s = new circle(Main.bkPane, title, ingameX, ingameY, ingameW, ingameH, color);
-            Main.sprites.add(s);
-        }
-        else if (sprite.equals("iconhydrogen")){
-            Icon s = new IconHydrogen(Main.bkPane, title, ingameX, ingameY, ingameW, ingameH);
-            Main.sprites.add(s);
-        }
-        else if (sprite.equals("iconenergy")){
-            Icon s = new IconEnergy(Main.bkPane, title, ingameX, ingameY, ingameW, ingameH);
-            Main.sprites.add(s);
+
+        if (type.equals("sprite")){
+            if (sprite.equals("square")){
+                square s = new square(Main.bkPane, title, ingameX, ingameY, ingameW, ingameH, color);
+                Main.sprites.add(s);
+            }
+            else if (sprite.equals("circle")){
+                circle s = new circle(Main.bkPane, title, ingameX, ingameY, ingameW, ingameH, color);
+                Main.sprites.add(s);
+            }
+            else if (sprite.equals("iconhydrogen")){
+                Icon s = new IconHydrogen(Main.bkPane, title, ingameX, ingameY, ingameW, ingameH);
+                Main.sprites.add(s);
+            }
+            else if (sprite.equals("iconenergy")){
+                Icon s = new IconEnergy(Main.bkPane, title, ingameX, ingameY, ingameW, ingameH);
+                Main.sprites.add(s);
+            }
         }
     }
 
