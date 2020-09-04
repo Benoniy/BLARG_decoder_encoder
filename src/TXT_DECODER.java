@@ -48,7 +48,6 @@ public class TXT_DECODER {
     }
 
     private static void processObj(ArrayList<String> currentObj){
-        System.out.println(currentObj);
         if (firstObj){
             genMain(currentObj);
             firstObj = false;
@@ -114,6 +113,7 @@ public class TXT_DECODER {
     private static void checkStandard(String s){
         if (s.contains("[")){
             title = s;
+            System.out.println(title);
         }
         else if (s.contains("sprite=") | s.contains("data=")){
             data = s.replace("sprite=", "").replace("data=","");
@@ -125,11 +125,11 @@ public class TXT_DECODER {
             String[] values = s.split(",");
             try{
                 if (!data.contains("icon")){
-                    ingameW = Integer.parseInt(values[0]);
-                    ingameH = Integer.parseInt(values[1]);
+                    ingameW = Double.parseDouble(values[0]);
+                    ingameH = Double.parseDouble(values[1]);
                 }
                 else{
-                    ingameW = Integer.parseInt(values[0]);
+                    ingameW = Double.parseDouble(values[0]);
                     ingameH = ingameW;
                 }
             }
@@ -141,8 +141,9 @@ public class TXT_DECODER {
                     .replace("h", "");
             String[] values = s.split(",");
             try{
-                ingameX = Integer.parseInt(values[0]);
-                ingameY = Integer.parseInt(values[1]);
+                System.out.println(values[0]);
+                ingameX = Double.parseDouble(values[0]);
+                ingameY = Double.parseDouble(values[1]);
             }
             catch (Exception ignored){
             }
