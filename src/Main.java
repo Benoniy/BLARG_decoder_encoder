@@ -38,7 +38,7 @@ public class Main extends Application {
 
         TXT_DECODER.decode("C:\\Users\\Ben\\Desktop\\TESTui.txt");
 
-
+        loop();
     }
 
     public void loop(){
