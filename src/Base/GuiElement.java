@@ -38,4 +38,6 @@ public abstract class GuiElement {
     }
 
     public abstract void setColor(Color color);
+
+    public abstract void render();
 }
