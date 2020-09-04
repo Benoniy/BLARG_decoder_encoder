@@ -1,20 +1,12 @@
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+import Sprites.*;
 import javafx.scene.paint.Color;
-
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Scanner;
 
 
 public class TXT_DECODER {
-    static Group g = new Group();
-    static ArrayList<String> lines, currentObj;
     static int line_count;
     static boolean firstLine = true, firstObj = true;
 
@@ -26,7 +18,7 @@ public class TXT_DECODER {
 
         line_count = 0;
         try {
-            lines = new ArrayList<>(Files.readAllLines(Paths.get(filename)));
+            ArrayList<String> lines = new ArrayList<>(Files.readAllLines(Paths.get(filename)));
             lines.removeAll(Collections.singleton(""));
             ArrayList<String> currentObj = new ArrayList<>();
 

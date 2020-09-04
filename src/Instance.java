@@ -3,7 +3,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 
-public class Instance extends sprite {
+public class Instance extends Sprites.sprite {
     static int screen = 1;
     static Color bkColor = Color.BLACK;
     static Rectangle shape = new Rectangle(1010,1010);

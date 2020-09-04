@@ -1,3 +1,5 @@
+package Sprites;
+
 import javafx.scene.layout.Pane;
 
 public class IconEnergy extends Icon {

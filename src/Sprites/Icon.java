@@ -1,7 +1,8 @@
+package Sprites;
+
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
 
 public class Icon extends sprite {
     public Icon(Pane layer, String title, String sprite, double ingameX, double ingameY, double ingameW, double ingameH) {

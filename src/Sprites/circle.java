@@ -1,3 +1,5 @@
+package Sprites;
+
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -6,7 +8,7 @@ import javafx.scene.shape.Circle;
 public class circle extends sprite {
 
     public circle(Pane layer, String title, double ingameX, double ingameY, double ingameW, double ingameH, Color color) {
-        super(layer, title, "circle", new Circle(0), ingameX, ingameY, ingameW, ingameH);
+        super(layer, title, "Sprites.circle", new Circle(0), ingameX, ingameY, ingameW, ingameH);
         this.color = color;
         this.width = width / 2;
         this.layer.getChildren().remove(shape);
