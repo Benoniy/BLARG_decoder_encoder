@@ -4,7 +4,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 
-public abstract class sprite {
+public abstract class Sprite {
 
     Pane layer;
     String title;
@@ -18,7 +18,7 @@ public abstract class sprite {
     Shape shape;
     Color color;
 
-    public sprite(Pane layer, String title, String sprite, Shape shape, double ingameX, double ingameY, double ingameW, double ingameH){
+    public Sprite(Pane layer, String title, String sprite, Shape shape, double ingameX, double ingameY, double ingameW, double ingameH){
         this.layer = layer;
         this.shape = shape;
         this.ingameX = ingameX;

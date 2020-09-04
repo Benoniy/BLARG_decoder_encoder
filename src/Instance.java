@@ -1,9 +1,10 @@
+import Sprites.Sprite;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 
-public class Instance extends Sprites.sprite {
+public class Instance extends Sprite {
     static int screen = 1;
     static Color bkColor = Color.BLACK;
     static Rectangle shape = new Rectangle(1010,1010);

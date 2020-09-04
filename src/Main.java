@@ -1,4 +1,4 @@
-import Sprites.sprite;
+import Sprites.Sprite;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -18,7 +18,7 @@ public class Main extends Application {
     public static Scene mainScene;
     public static Group layers;
 
-    public static ArrayList<sprite> sprites = new ArrayList<>();
+    public static ArrayList<Sprite> sprites = new ArrayList<>();
 
     @Override
     public void start(Stage mainStage) {
@@ -48,7 +48,7 @@ public class Main extends Application {
             public void handle(long now) {
 
                 bk.render();
-                for (sprite s : sprites){
+                for (Sprite s : sprites){
                     s.render();
                 }
             }

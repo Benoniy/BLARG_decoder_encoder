@@ -115,11 +115,11 @@ public class TXT_DECODER {
 
         if (type.equals("sprite")){
             if (sprite.equals("square")){
-                square s = new square(Main.bkPane, title, ingameX, ingameY, ingameW, ingameH, color);
+                Square s = new Square(Main.bkPane, title, ingameX, ingameY, ingameW, ingameH, color);
                 Main.sprites.add(s);
             }
             else if (sprite.equals("circle")){
-                circle s = new circle(Main.bkPane, title, ingameX, ingameY, ingameW, ingameH, color);
+                Circle s = new Circle(Main.bkPane, title, ingameX, ingameY, ingameW, ingameH, color);
                 Main.sprites.add(s);
             }
             else if (sprite.equals("iconhydrogen")){

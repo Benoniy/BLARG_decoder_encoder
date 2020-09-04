@@ -4,7 +4,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class Icon extends sprite {
+public class Icon extends Sprite {
     public Icon(Pane layer, String title, String sprite, double ingameX, double ingameY, double ingameW, double ingameH) {
         super(layer, title, sprite, new Rectangle(1, 1), ingameX, ingameY, ingameW, ingameH);
         this.layer.getChildren().remove(shape);
