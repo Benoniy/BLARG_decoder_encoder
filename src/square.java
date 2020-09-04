@@ -5,7 +5,7 @@ import javafx.scene.shape.Rectangle;
 public class square extends sprite{
 
 
-    public square(Pane layer, String title, int ingameX, int ingameY, int ingameW, int ingameH, Color color) {
+    public square(Pane layer, String title, double ingameX, double ingameY, double ingameW, double ingameH, Color color) {
         super(layer, title, "square", new Rectangle(1,1), ingameX, ingameY, ingameW, ingameH);
         this.color = color;
         this.layer.getChildren().remove(shape);

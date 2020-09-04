@@ -5,7 +5,7 @@ import javafx.scene.shape.Circle;
 
 public class circle extends sprite {
 
-    public circle(Pane layer, String title, int ingameX, int ingameY, int ingameW, int ingameH, Color color) {
+    public circle(Pane layer, String title, double ingameX, double ingameY, double ingameW, double ingameH, Color color) {
         super(layer, title, "circle", new Circle(0), ingameX, ingameY, ingameW, ingameH);
         this.color = color;
         this.width = width / 2;
@@ -14,7 +14,6 @@ public class circle extends sprite {
         this.shape.setFill(this.color);
         this.layer.getChildren().add(shape);
         this.render();
-        System.out.println("Circle: " + ingameW + ", " + ingameH + " | " + x + ", " + ingameY);
     }
 
     @Override
@@ -38,8 +37,8 @@ public class circle extends sprite {
 
 
 
-        int tempx = ingameX * 10;
-        int tempy = ingameY * 10;
+        double tempx = ingameX * 10;
+        double tempy = ingameY * 10;
 
 
         x += tempx;

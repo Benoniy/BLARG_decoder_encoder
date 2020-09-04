@@ -12,11 +12,11 @@ public abstract class sprite {
 
     // Works bottom left to top right from -50 to 50 inclusive for each value a total of 101x101
     // Max ingame width is 101 min is 1
-    int ingameX, ingameY, ingameW, ingameH;
+    double ingameX, ingameY, ingameW, ingameH;
     Shape shape;
     Color color;
 
-    public sprite(Pane layer, String title, String sprite, Shape shape, int ingameX, int ingameY, int ingameW, int ingameH){
+    public sprite(Pane layer, String title, String sprite, Shape shape, double ingameX, double ingameY, double ingameW, double ingameH){
         this.layer = layer;
         this.shape = shape;
         this.ingameX = ingameX;
@@ -33,7 +33,7 @@ public abstract class sprite {
         layer.getChildren().add(shape);
     }
 
-    public void render(){
+    public void checkBounds(){
         if (ingameX > 50){
             ingameX = 50;
         }
@@ -47,14 +47,18 @@ public abstract class sprite {
         else if (ingameY < -50){
             ingameY = -50;
         }
+    }
+
+    public void render(){
+        this.checkBounds();
 
         y = 505 - height*0.5;
         x = 505 - width*0.5;
 
 
 
-        int tempx = ingameX * 10;
-        int tempy = ingameY * 10;
+        double tempx = ingameX * 10;
+        double tempy = ingameY * 10;
 
 
         x += tempx;

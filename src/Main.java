@@ -17,7 +17,7 @@ public class Main extends Application {
     public static Scene mainScene;
     public static Group layers;
 
-    public static ArrayList<sprite> sprites = new ArrayList<sprite>();
+    public static ArrayList<sprite> sprites = new ArrayList<>();
 
     @Override
     public void start(Stage mainStage) {
@@ -35,9 +35,9 @@ public class Main extends Application {
         mainStage.setScene(mainScene);
         mainStage.show();
 
+        TXT_DECODER.decode("C:\\Users\\Ben\\Desktop\\TESTui.txt");
 
 
-        loop();
     }
 
     public void loop(){
@@ -45,7 +45,7 @@ public class Main extends Application {
 
             @Override
             public void handle(long now) {
-                TXT_DECODER.decode("C:\\Users\\Ben\\Desktop\\TESTui.txt");
+
                 bk.render();
                 for (sprite s : sprites){
                     s.render();
