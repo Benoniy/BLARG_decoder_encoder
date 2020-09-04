@@ -125,11 +125,14 @@ public class TXT_DECODER {
             circle s = new circle(Main.bkPane, title, ingameX, ingameY, ingameW, ingameH, color);
             Main.sprites.add(s);
         }
-        else if (sprite.equals("iconhydrogen") | sprite.equals("iconenergy")){
-            Icon s = new Icon(Main.bkPane, title, ingameX, ingameY, ingameW, ingameH);
+        else if (sprite.equals("iconhydrogen")){
+            Icon s = new IconHydrogen(Main.bkPane, title, ingameX, ingameY, ingameW, ingameH);
             Main.sprites.add(s);
         }
-
+        else if (sprite.equals("iconenergy")){
+            Icon s = new IconEnergy(Main.bkPane, title, ingameX, ingameY, ingameW, ingameH);
+            Main.sprites.add(s);
+        }
     }
 
     static void genMain(ArrayList<String> currentObj){
