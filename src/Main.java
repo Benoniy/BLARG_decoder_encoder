@@ -1,4 +1,4 @@
-import Sprites.Sprite;
+import Base.GuiElement;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -18,7 +18,7 @@ public class Main extends Application {
     public static Scene mainScene;
     public static Group layers;
 
-    public static ArrayList<Sprite> sprites = new ArrayList<>();
+    public static ArrayList<GuiElement> GuiElements = new ArrayList<>();
 
     @Override
     public void start(Stage mainStage) {
@@ -36,7 +36,7 @@ public class Main extends Application {
         mainStage.setScene(mainScene);
         mainStage.show();
 
-
+        TXT_DECODER.decode("C:\\Users\\Ben\\Desktop\\TESTui.txt");
 
         loop();
     }
@@ -46,9 +46,9 @@ public class Main extends Application {
 
             @Override
             public void handle(long now) {
-                TXT_DECODER.decode("C:\\Users\\Ben\\Desktop\\TESTui.txt");
+
                 bk.render();
-                for (Sprite s : sprites){
+                for (GuiElement s : GuiElements){
                     s.render();
                 }
             }

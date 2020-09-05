@@ -1,4 +1,5 @@
 import Sprites.*;
+import Text.Text;
 import javafx.scene.paint.Color;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -8,7 +9,7 @@ import java.util.Collections;
 
 public class TXT_DECODER {
     private static boolean firstLine = true, firstObj = true;
-    private static String title = "", type = "", data = "";
+    private static String title = "", type = "", data = ""; //Data could be (sprite, data, text)
     private static double ingameX=1, ingameY=1, ingameW=1, ingameH=1;
     private static Color color = null;
 
@@ -24,7 +25,7 @@ public class TXT_DECODER {
             ArrayList<String> currentObj = new ArrayList<>();
 
             for (String l : lines){
-                String line = l.toLowerCase().replace(" ", "").replace("\n", "");
+                String line = l.replace("\n", "");
                 if (firstLine){
                     currentObj.add(line);
                     firstLine = false;
@@ -40,6 +41,7 @@ public class TXT_DECODER {
                     }
                 }
             }
+            processObj(currentObj);
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -75,15 +77,19 @@ public class TXT_DECODER {
     }
 
     private static void genText(ArrayList<String> currentObj){
-        String anchor = "";
-
+        String anchor = "center";
         for (String line : currentObj){
-            checkStandard(line);
-
             if (line.contains("anchor=")){
-                anchor = line.replace("anchor=", "");
+                anchor = line.replace("anchor=", "").replace(" ", "");
             }
+            else if (line.contains("text=")){
+                data = line.replace("text=", "").trim();
+            }
+            checkStandard(line);
         }
+
+        Text s = new Text(Main.objPane, title, data, anchor, ingameX, ingameY, ingameW, color);
+        Main.GuiElements.add(s);
     }
 
     private static void genShape(ArrayList<String> currentObj){
@@ -91,37 +97,39 @@ public class TXT_DECODER {
         for (String line : currentObj){
             checkStandard(line);
         }
+        data = data.toLowerCase();
 
         if (data.equals("square")){
-            Square s = new Square(Main.bkPane, title, ingameX, ingameY, ingameW, ingameH, color);
-            Main.sprites.add(s);
+            Square s = new Square(Main.objPane, title, ingameX, ingameY, ingameW, ingameH, color);
+            Main.GuiElements.add(s);
         }
         else if (data.equals("circle")){
-            Circle s = new Circle(Main.bkPane, title, ingameX, ingameY, ingameW, ingameH, color);
-            Main.sprites.add(s);
+            Circle s = new Circle(Main.objPane, title, ingameX, ingameY, ingameW, ingameH, color);
+            Main.GuiElements.add(s);
         }
         else if (data.equals("iconhydrogen")){
-            Icon s = new IconHydrogen(Main.bkPane, title, ingameX, ingameY, ingameW, ingameH);
-            Main.sprites.add(s);
+            Icon s = new IconHydrogen(Main.objPane, title, ingameX, ingameY, ingameW, ingameH);
+            Main.GuiElements.add(s);
         }
         else if (data.equals("iconenergy")){
-            Icon s = new IconEnergy(Main.bkPane, title, ingameX, ingameY, ingameW, ingameH);
-            Main.sprites.add(s);
+            Icon s = new IconEnergy(Main.objPane, title, ingameX, ingameY, ingameW, ingameH);
+            Main.GuiElements.add(s);
         }
     }
 
     private static void checkStandard(String s){
+        s = s.replace(" ", "");
         if (s.contains("[")){
             title = s;
-            System.out.println(title);
         }
-        else if (s.contains("sprite=") | s.contains("data=")){
-            data = s.replace("sprite=", "").replace("data=","");
+        else if (s.contains("sprite=")){
+            data = s.replace("sprite=", "");
         }
 
         else if (s.contains("size=")){
             s = s.replace("size=", "").replace("w", "")
-                    .replace("h", "").replace("%", "");
+                    .replace("h", "").replace("%", "")
+                    .replace(" ", "").toLowerCase();
             String[] values = s.split(",");
             try{
                 if (!data.contains("icon")){
@@ -138,10 +146,9 @@ public class TXT_DECODER {
 
         else if (s.contains("position=")){
             s = s.replace("position=", "").replace("w", "")
-                    .replace("h", "");
+                    .replace("h", "").replace(" ", "").toLowerCase();
             String[] values = s.split(",");
             try{
-                System.out.println(values[0]);
                 ingameX = Double.parseDouble(values[0]);
                 ingameY = Double.parseDouble(values[1]);
             }
@@ -151,6 +158,7 @@ public class TXT_DECODER {
         else if (s.contains("color=")){
             color = workColour(s.replace("color=", ""));
         }
+
     }
 
     private static void genMain(ArrayList<String> currentObj){
@@ -159,6 +167,7 @@ public class TXT_DECODER {
         Color bkColor = Color.BLACK;
 
         for (String line : currentObj){
+            line = line.replace(" ", "").toLowerCase();
             if (line.contains("[")){
                 title = line;
             }
