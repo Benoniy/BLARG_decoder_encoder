@@ -3,14 +3,9 @@ package Text;
 import Base.GuiElement;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
-
-import java.awt.*;
-
 
 public class Text extends GuiElement {
     public javafx.scene.text.Text shape;
